@@ -32,7 +32,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — software for universities, built and maintained by us`,
+    default: `${site.name} | Smart Software Solutions for Universities`,
     template: `%s — ${site.name}`,
   },
   description: site.description,
