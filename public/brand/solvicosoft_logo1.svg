@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" font-family="'Arial Black', Arial, 'Helvetica Neue', Helvetica, sans-serif">
+  <!-- Wordmark: SOLVIC + [target icon in place of O] + SOFT -->
+  <text x="20" y="150" font-size="92" font-weight="900" letter-spacing="-1"
+        textLength="330" lengthAdjust="spacingAndGlyphs" fill="#1B2A56"
+        stroke="#1B2A56" stroke-width="2.5" paint-order="stroke fill">SOLVIC</text>
+
+  <!-- Icon replacing the "O" between SOLVIC and SOFT -->
+  <g>
+    <circle cx="418" cy="117" r="50" fill="#0EA99E"/>
+    <circle cx="418" cy="117" r="35" fill="#FFFFFF"/>
+    <rect x="368" y="110" width="100" height="14" fill="#FFFFFF" transform="rotate(-26 418 117)"/>
+    <circle cx="418" cy="117" r="18" fill="#F0A93B"/>
+  </g>
+
+  <text x="480" y="150" font-size="92" font-weight="900" letter-spacing="-1"
+        textLength="230" lengthAdjust="spacingAndGlyphs" fill="#1B2A56"
+        stroke="#1B2A56" stroke-width="2.5" paint-order="stroke fill">SOFT</text>
+
+  <!-- Tagline -->
+  <text x="380" y="196" font-size="25" font-style="italic" letter-spacing="1.5"
+        text-anchor="middle" fill="#4B5563" font-family="Georgia, 'Times New Roman', serif">Technology. Solutions. Growth.</text>
+
+  <!-- Accent bar -->
+  <rect x="20" y="218" width="480" height="7" rx="3.5" fill="#0EA99E"/>
+  <rect x="504" y="218" width="236" height="7" rx="3.5" fill="#F0A93B"/>
+</svg>
