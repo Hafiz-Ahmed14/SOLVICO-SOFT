@@ -1,18 +1,5 @@
 import { NextResponse } from "next/server";
 
-/**
- * Contact endpoint.
- *
- * There is no mail server here, so this route forwards the message to a
- * webhook you configure. Set CONTACT_WEBHOOK_URL in .env.local to anything
- * that accepts a JSON POST — a Formspree/Formspark endpoint, a Google Apps
- * Script, a Slack or Discord incoming webhook, or your own handler.
- *
- * If it is not set, the route says so honestly and returns 503 rather than
- * silently swallowing the message. The contact page always shows a mailto:
- * address as well, so the form is never the only way through.
- */
-
 type Payload = {
   name?: unknown;
   email?: unknown;

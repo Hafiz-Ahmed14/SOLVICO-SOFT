@@ -42,6 +42,7 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
   if (!product) notFound();
 
   const others = products.filter((p) => p.slug !== product.slug);
+  const isVitaCraft = product.slug === "vitacraft";
 
   return (
     <>
@@ -216,35 +217,59 @@ export default async function ProductPage({ params }: { params: Promise<Params> 
         </div>
       </section>
 
-      {/* ---- close ----------------------------------------------------- */}
-      <section className="band band-dark">
-        <div className="wrap cta-row">
-          <div>
-            <Eyebrow>Next step</Eyebrow>
-            <h2>
-              {product.status === "live"
-                ? `Run ${product.name} at your institution`
-                : `Be first on ${product.name}`}
-            </h2>
-            <p className="lead">
-              {product.status === "live"
-                ? "We set up your instance, load the records you already keep, and walk your staff through it."
-                : "Tell us about your department and we will let you know when it is ready — and shape it around what you actually need to report."}
-            </p>
+      {/* ---- CTA: Use this at your institution ------------------------- */}
+      {isVitaCraft ? (
+        <section className="band band-dark">
+          <div className="wrap cta-row">
+            <div>
+              <Eyebrow>Free to use</Eyebrow>
+              <h2>Create your professional CV for free</h2>
+              <p className="lead">
+                VitaCraft is completely free for everyone. Fill in your details, pick a template, 
+          and download a professional CV in minutes.
+              </p>
+            </div>
+            <div className="btn-row">
+              <a
+                href="https://vitacraft.solvicosoft.com"
+                className="btn btn-solid"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Start Building Your CV
+                <span className="arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
           </div>
-          <div className="btn-row">
-            <Link href="/contact" className="btn btn-solid">
-              Get in touch
-              <span className="arrow" aria-hidden="true">
-                →
-              </span>
-            </Link>
-            <a href={`mailto:${site.contact.email}`} className="btn btn-outline">
-              {site.contact.email}
-            </a>
+        </section>
+      ) : (
+        <section className="band band-dark">
+          <div className="wrap cta-row">
+            <div>
+              <Eyebrow>Get started</Eyebrow>
+              <h2>
+                Want to use {product.name} at your institution?
+              </h2>
+              <p className="lead">
+                {product.status === "live"
+                  ? `We set up your instance, load the records you already keep, and walk your staff through it. ${product.name} is ready to run at your institution today.`
+                  : `${product.name} is in active development. Contact us to discuss your timeline and how we can shape it around your institution's needs.`}
+              </p>
+            </div>
+            <div className="btn-row">
+              <Link href="/contact" className="btn btn-solid">
+                Contact us
+                <span className="arrow" aria-hidden="true">
+                  →
+                </span>
+              </Link>
+              <a href={`mailto:${site.contact.email}`} className="btn btn-outline">
+                {site.contact.email}
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }

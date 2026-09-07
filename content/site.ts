@@ -1,5 +1,3 @@
-
-
 export type RotatingItem = {
   text: string;
   subtext?: string;
@@ -63,20 +61,19 @@ export const site = {
     },
   ] as RotatingItem[],
 
-  // ---- ABOUT SECTION ----
   about: {
-  lead: "SolvicoSoft is a software product company building systems for universities and colleges. We design, build, and run our own products — hall meal management, outcome-based education, and CV tooling.",
-  vision: "Our goal is simple: to streamline university operations so educators and administrators can focus on what matters most. Universities already face immense pressure; the software running in the background shouldn't add to that burden. We design intuitive systems that staff can master without weeks of training, and we stay by our clients' side with dedicated support long after the initial go-live.",
-  mission: "To make technology an asset for the education sector — transforming how universities manage hall meals, track student outcomes, and help graduates build their careers. We build software that replaces paperwork, reduces manual effort, and provides real-time visibility into operations.",
-  recognition: "SolvicoSoft has gained notable recognition in Bangladesh. We have developed a range of software applications including Hall Meal Management Systems, Outcome Based Education Systems, and CV Building tools — all designed specifically for the higher education sector.",
-  success: "SolvicoSoft succeeded in building trust with universities and colleges. Our products are in production at institutions across Bangladesh, helping students, faculty, and administrators work more efficiently.",
-  successBadges: ["BAUET", "Multiple Halls", "100+ Students"],
-  infoSystems: [
-    { name: "HMMS - Hall Meal Management System", type: "Paid" },
-    { name: "OBE_SOFT - Outcome Based Education System", type: "Paid" },
-    { name: "VitaCraft - A Dynamic CV Generator", type: "Free" }
-  ]
-},
+    lead: "SolvicoSoft is a software product company building systems for universities and colleges. We design, build, and run our own products — hall meal management, outcome-based education, and CV tooling.",
+    vision: "Our goal is simple: to streamline university operations so educators and administrators can focus on what matters most. Universities already face immense pressure; the software running in the background shouldn't add to that burden. We design intuitive systems that staff can master without weeks of training, and we stay by our clients' side with dedicated support long after the initial go-live.",
+    mission: "To make technology an asset for the education sector — transforming how universities manage hall meals, track student outcomes, and help graduates build their careers. We build software that replaces paperwork, reduces manual effort, and provides real-time visibility into operations.",
+    recognition: "SolvicoSoft has gained notable recognition in Bangladesh. We have developed a range of software applications including Hall Meal Management Systems, Outcome Based Education Systems, and CV Building tools — all designed specifically for the higher education sector.",
+    success: "SolvicoSoft succeeded in building trust with universities and colleges. Our products are in production at institutions across Bangladesh, helping students, faculty, and administrators work more efficiently.",
+    successBadges: ["BAUET", "Multiple Halls", "100+ Students"],
+    infoSystems: [
+      { name: "HMMS - Hall Meal Management System", type: "Paid" },
+      { name: "OBE_SOFT - Outcome Based Education System", type: "Paid" },
+      { name: "VitaCraft - A Dynamic CV Generator", type: "Free" }
+    ]
+  },
 
   model: {
     heading: "A product company, not a development agency",
@@ -254,7 +251,6 @@ export const nav = [
     ],
   },
   { href: "/products", label: "Products" },
-  { href: "/member", label: "Member" },
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact Us" },
 ] as const;

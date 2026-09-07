@@ -1,3 +1,4 @@
+// components/SiteHeader.tsx - Modified version
 "use client";
 
 import Image from "next/image";
@@ -6,27 +7,6 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { nav, navCta, site } from "@/content/site";
 
-/**
- * Site header: brand lockup on the left, navigation grouped to the right, and
- * the call to action pinned flush to the container edge.
- *
- * Three things are load-bearing and easy to break by accident:
- *
- *   1. "Our Services" is a disclosure button, not a link. It has no page of its
- *      own — giving it one would put it on the same route as "Products" and
- *      mark two elements as the current page. Everything it opens is a real
- *      product route, checked against the filesystem by scripts/verify.mjs.
- *
- *   2. Current-page matching is exact, never a prefix. `startsWith("/products")`
- *      would light up "Products" on every product page at the same time as
- *      "Our Services", which is what `aria-current` exists to prevent. The
- *      services trigger stands in as the active item on a child route instead.
- *
- *   3. The logo file carries a wide transparent margin — its artwork sits in
- *      the lower 61% of the canvas, not centred. `.brand-logo` compensates with
- *      a negative top margin, so changing the image means re-measuring that
- *      offset rather than assuming the artwork is where the box says it is.
- */
 export default function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,14 +18,10 @@ export default function SiteHeader() {
     setOpenSub(null);
   }, []);
 
-  // Navigating away must leave nothing hanging open behind the new page.
   useEffect(() => {
     closeAll();
   }, [pathname, closeAll]);
 
-  // A submenu that only closes by clicking its own trigger is a trap on touch,
-  // where there is no hover to fall out of. Escape and an outside press both
-  // dismiss it; Escape hands focus back so the keyboard does not lose its place.
   useEffect(() => {
     if (!openSub) return;
 
@@ -108,8 +84,6 @@ export default function SiteHeader() {
             }
 
             const open = openSub === item.label;
-            // The trigger stands in as the active item while one of its own
-            // routes is showing, so the bar never reads as "nowhere".
             const holdsCurrent = item.children.some((c) => isCurrent(c.href));
 
             return (
@@ -151,6 +125,7 @@ export default function SiteHeader() {
             );
           })}
 
+          {/* CTA moved inside nav for centering */}
           <Link href={navCta.href} className="nav-cta">
             {navCta.label}
             <span className="arrow" aria-hidden="true">

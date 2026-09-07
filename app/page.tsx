@@ -1,20 +1,24 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AttainmentMatrix from "@/components/AttainmentMatrix";
 import Eyebrow from "@/components/Eyebrow";
-import ProductRegister from "@/components/ProductRegister";
 import Reveal from "@/components/Reveal";
 import RotatingText from "@/components/RotatingText";
 import StatusPill from "@/components/StatusPill";
-import HomeAbout from "@/components/HomeAbout";  // <-- ADD THIS
+import HomeAbout from "@/components/HomeAbout";
 import { products } from "@/content/products";
 import { site } from "@/content/site";
 import * as SiIcons from "react-icons/si";
-
-const hmms = products[0];
+import { 
+  FaUniversity, 
+  FaGraduationCap, 
+  FaBuilding, 
+  FaCogs, 
+  FaChartBar, 
+  FaCode 
+} from "react-icons/fa";
 
 export default function HomePage() {
   return (
@@ -42,29 +46,112 @@ export default function HomePage() {
       {/* ---- ABOUT SECTION - ON HOME PAGE ---- */}
       <HomeAbout />
 
-      {/* ---- Products Section ---- */}
-      <section className="band" id="products">
+      {/* ---- WHAT WE SERVE SECTION ---- */}
+      <section className="services-section">
         <div className="wrap">
-          <Eyebrow>Products</Eyebrow>
+          <div className="services-header">
+            <Eyebrow>WHAT WE SERVE</Eyebrow>
+            <h2>Our Service Categories</h2>
+            <p className="lead">
+              We provide comprehensive software solutions across multiple domains to meet the 
+              diverse needs of educational institutions and organizations.
+            </p>
+          </div>
 
-          {products.map((p) => (
-            <Reveal as="section" className="prod" key={p.slug}>
-              <div>
-                <div className="prod-kicker">
-                  <span className="prod-code">{p.code}</span>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon-wrapper">
+                <FaUniversity className="service-icon" />
+              </div>
+              <h3>Institutional Management</h3>
+              <p>Complete management solutions for educational institutions including student records, staff management, and administrative operations.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon-wrapper">
+                <FaGraduationCap className="service-icon" />
+              </div>
+              <h3>Academic & Educational Solutions</h3>
+              <p>Outcome-based education systems, curriculum management, assessment tracking, and accreditation support tools.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon-wrapper">
+                <FaBuilding className="service-icon" />
+              </div>
+              <h3>Business Management Systems</h3>
+              <p>Enterprise resource planning, hall management, resource allocation, and operational management systems.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon-wrapper">
+                <FaCogs className="service-icon" />
+              </div>
+              <h3>Workflow Automation</h3>
+              <p>Streamline repetitive tasks with automated workflows that reduce manual effort and improve operational efficiency.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon-wrapper">
+                <FaChartBar className="service-icon" />
+              </div>
+              <h3>Data & Analytics</h3>
+              <p>Centralized reporting dashboards, data visualization, and analytics tools to track performance and make informed decisions.</p>
+            </div>
+
+            <div className="service-card">
+              <div className="service-icon-wrapper">
+                <FaCode className="service-icon" />
+              </div>
+              <h3>Custom Software Development</h3>
+              <p>Tailored software solutions built to address specific institutional needs and integrate with existing systems.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---- OUR PROJECTS SECTION - Combined with Products ---- */}
+      <section className="band" id="projects">
+        <div className="wrap">
+          <Eyebrow>OUR PROJECTS</Eyebrow>
+          <h2 className="projects-title">Projects We have Worked</h2>
+          <p className="projects-description">
+            SolvicoSoft's software runs in universities and colleges across Bangladesh. 
+            Our clients range from residential halls to academic departments and institutions. 
+            These organizations use our systems for their core daily operations, including 
+            student meal management, academic outcome tracking, and career preparation.
+          </p>
+
+          <div className="products-grid">
+            {products.map((p) => (
+              <div className="product-card" key={p.slug}>
+                <div className="product-card-header">
+                  <span className="product-code">{p.code}</span>
                   <StatusPill status={p.status} label={p.statusLabel} />
                 </div>
-                <h3>{p.fullName}</h3>
-                <p className="prod-sub">{p.summary}</p>
-                <div className="prod-actions btn-row">
-                  <Link href={`/products/${p.slug}`} className="btn btn-outline">
+                <h3 className="product-card-title">{p.fullName}</h3>
+                
+                {p.screenshot ? (
+                  <div className="product-card-image">
+                    <Image
+                      src={p.screenshot.src}
+                      alt={p.screenshot.alt}
+                      width={p.screenshot.width}
+                      height={p.screenshot.height}
+                      sizes="(max-width: 980px) 100vw, 33vw"
+                    />
+                  </div>
+                ) : null}
+
+                <div className="product-card-actions">
+                  <Link href={`/products/${p.slug}`} className="btn btn-outline product-card-btn">
                     {p.name} in detail
                     <span className="arrow" aria-hidden="true">→</span>
                   </Link>
                   {p.liveUrl ? (
                     <a
                       href={p.liveUrl}
-                      className="btn btn-ghost"
+                      className="btn btn-ghost product-card-link"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -74,25 +161,15 @@ export default function HomePage() {
                   ) : null}
                 </div>
               </div>
+            ))}
+          </div>
 
-              <div>
-                {p.screenshot ? (
-                  <figure className="shot">
-                    <Image
-                      src={p.screenshot.src}
-                      alt={p.screenshot.alt}
-                      width={p.screenshot.width}
-                      height={p.screenshot.height}
-                      sizes="(max-width: 980px) 92vw, 620px"
-                    />
-                    <figcaption className="shot-cap">{p.screenshot.caption}</figcaption>
-                  </figure>
-                ) : (
-                  <AttainmentMatrix />
-                )}
-              </div>
-            </Reveal>
-          ))}
+          <div className="products-view-all">
+            <Link href="/products" className="btn btn-solid">
+              View All Products
+              <span className="arrow" aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Eyebrow from "@/components/Eyebrow";
-import { products } from "@/content/products";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -51,51 +49,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-     
-
-      <section className="band band-sunken">
-        <div className="wrap">
-          <Eyebrow>The record</Eyebrow>
-          <div className="head-split">
-            <h2>What we will and won&rsquo;t claim</h2>
-            <p className="lead">
-              Being straight about scope is worth more than a longer capability list. So, for
-              the record:
-            </p>
-          </div>
-
-          <dl className="spec">
-            <div className="spec-row">
-              <dt className="spec-k">Founded</dt>
-              <dd className="spec-v">
-                {site.founded} — {site.contact.addressOneLine}, {site.contact.country}
-              </dd>
-            </div>
-            <div className="spec-row">
-              <dt className="spec-k">In production</dt>
-              <dd className="spec-v">
-                {products[0].name} is deployed and in daily use. Everything else in the
-                catalogue is labelled with exactly where it stands, on its own page.
-              </dd>
-            </div>
-            <div className="spec-row">
-              <dt className="spec-k">Roles covered</dt>
-              <dd className="spec-v">
-                Every discipline the catalogue needs, listed on the{" "}
-                <Link href="/member">member page</Link>.
-              </dd>
-            </div>
-            <div className="spec-row">
-              <dt className="spec-k">Stack</dt>
-              <dd className="spec-v spec-v-mono">
-                {site.stack.map((s) => s.v).join(" · ")}
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
     </>
   );
 }

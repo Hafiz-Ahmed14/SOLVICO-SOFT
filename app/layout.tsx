@@ -62,9 +62,6 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
-  /* The mark lives in public/brand rather than as an app/icon.svg convention
-     file, so it has to be declared: without this the site ships with no favicon
-     at all and browsers fall back to a blank page glyph. */
   icons: {
     icon: [{ url: "/brand/solvicosoft_favicon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/brand/solvicosoft_favicon.svg", type: "image/svg+xml" }],

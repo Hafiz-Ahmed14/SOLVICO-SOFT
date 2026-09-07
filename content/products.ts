@@ -1,5 +1,3 @@
-
-
 export type ProductStatus = "live" | "development";
 
 export type Product = {
@@ -68,6 +66,22 @@ export const products: Product[] = [
       {
         title: "Feedback on record",
         body: "Students rate and comment on meals, giving the provost something better than hearsay to act on.",
+      },
+      {
+        title: "Meal records",
+        body: "Every student's meal activity is recorded by date, creating a clear history of meal participation that can be reviewed whenever needed.",
+      },
+      {
+        title: "Monthly settlement",
+        body: "At the end of the month, the system consolidates each student's meal participation and calculates the final monthly meal cost without manual reconstruction.",
+      },
+      {
+        title: "Role-based management",
+        body: "Students, staff, house tutors, and administrators get access to the features relevant to their responsibilities, keeping operational controls in the right hands.",
+      },
+      {
+        title: "Reports and insights",
+        body: "Management can review daily and monthly meal activity, student participation, meal costs, and other operational data through centralized reports and dashboards.",
       },
     ],
     roles: [
@@ -225,6 +239,39 @@ export const products: Product[] = [
           "Recommended learning resources",
           "Portfolio development",
           "Advisor communication",
+        ],
+      },
+      {
+        name: "Dean",
+        items: [
+          "Institutional outcome framework oversight",
+          "Programme accreditation coordination",
+          "Quality assurance monitoring",
+          "Faculty development planning",
+          "Strategic academic planning",
+          "Institutional effectiveness reporting",
+        ],
+      },
+      {
+        name: "IQAC",
+        items: [
+          "Quality assurance documentation",
+          "Accreditation compliance tracking",
+          "Internal audit and review",
+          "Best practices documentation",
+          "Quality benchmarks monitoring",
+          "External accreditation preparation",
+        ],
+      },
+      {
+        name: "Exam Controller",
+        items: [
+          "Assessment scheduling and management",
+          "Examination result tracking",
+          "Assessment policy enforcement",
+          "Student academic records management",
+          "Exam data analysis and reporting",
+          "Grade management and certification",
         ],
       },
     ],
