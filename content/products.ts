@@ -28,8 +28,8 @@ export const products: Product[] = [
     code: "Product 01",
     status: "live",
     statusLabel: "Live",
-    liveUrl: "https://bauet-hmms.runasp.net/bauet/home",
-    liveLabel: "bauet-hmms.runasp.net",
+    liveUrl: "https://buaet-hmms.site",
+    liveLabel: "buaet-hmms.site",
     oneLine: "Meal registers, costs and month-end accounts for a residential hall.",
     summary:
       "A residential hall runs on a paper meal register: who ate, who switched off, what it cost, who still owes. HMMS replaces that register. Students set meals on and off from a phone, house tutors approve the exceptions, staff see tomorrow's headcount before they shop, and the provost gets the month's cost without adding anything up.",
@@ -106,7 +106,7 @@ export const products: Product[] = [
         ],
       },
       {
-        name: "Kitchen staff",
+        name: "Hall staff",
         items: [
           "Work from the daily meal on/off list",
           "Manage daily meal preparation",
@@ -282,7 +282,9 @@ export const products: Product[] = [
     name: "VitaCraft",
     fullName: "A Dynamic CV Generator",
     code: "Product 03",
-    status: "development",
+    status: "live",
+    liveUrl: "https://vita-craft-phi.vercel.app/",
+    liveLabel: "vita-craft.com",
     statusLabel: "Free for Everyone",
     oneLine: "Fill in the blanks, pick a template, download a clean CV.",
     summary:

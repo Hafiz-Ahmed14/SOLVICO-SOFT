@@ -58,9 +58,7 @@ export default function SiteFooter() {
             <li>
               <Link href="/products">All products</Link>
             </li>
-            <li>
-              <Link href="/member">Member</Link>
-            </li>
+           
             <li>
               <Link href="/about">About</Link>
             </li>
